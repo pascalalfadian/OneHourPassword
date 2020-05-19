@@ -28,13 +28,13 @@ function generate_key($datetime, $plaintext) {
 	</style>
 </head>
 <body>
-	<p>Your password:</p>
+	<p>Your password for this hour:</p>
 	<p><code class="generated-password"><?= htmlspecialchars($keyed_sha) ?></code></p>
-	<p><small>Use this to decrypt your file</small></p>
+	<p><small>Use it to decrypt your file. This password is only available until <?= $datetime->format('Y-m-d H:59:59') ?>.</small></p>
 	<hr/>
 	<p>Debugging information:
 		<ul>
-			<li>datetime: <code><?= htmlspecialchars($plaintext['datetime']) ?></code></li>
+			<li>datetime: <?= htmlspecialchars($plaintext['datetime']) ?></li>
 			<li>key length: <?= strlen($plaintext['key']) ?></li>
 		</ul>
 	</p>
