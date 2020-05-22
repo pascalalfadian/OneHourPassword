@@ -24,9 +24,9 @@ $keyed_sha = generate_key($datetime, $plaintext);
 	</style>
 </head>
 <body>
-	<p>Your password for <?= $datetime->format('l, d-M-Y H:i:s') ?> and 59 minutes after:</p>
+	<p>Your password for <?= $datetime->format('l, d-M-Y H:i:s') ?>:</p>
 	<p><code class="generated-password"><?= htmlspecialchars($keyed_sha) ?></code></p>
-	<p>Use this password to <em>decrypt</em> your file. Keep it safe for this session since it will not be retrievable after expiry time.</p>
+	<p>Use this password to <em>decrypt</em> your file. Keep it safe for this session since it will not be retrievable after the next hour.</p>
 	<hr/>
 	<p><small>Debugging information:
 		<ul>
