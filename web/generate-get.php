@@ -4,7 +4,7 @@ $datetime = new DateTime();
 $this_year = intval($datetime->format('Y'));
 $this_month = intval($datetime->format('m'));
 $this_day = intval($datetime->format('d'));
-$this_hour = intval($datetime->format('h'));
+$this_hour = intval($datetime->format('H'));
 // Get names of month, adjusted from https://stackoverflow.com/a/18467892
 $month_names = [];
 for ($month = 1; $month <= 12; $month++) {

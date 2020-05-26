@@ -36,7 +36,7 @@ setcookie($key_cookie_name, $key, time() + 60 * 60 * 24 * 30, '', '', TRUE, TRUE
 		Use this password to <em>encrypt</em> your file. At the time mentioned above, it will be visible in the <a href="/">index page</a>.
 		You can also tell your students/recipients that the valid password will start with <?= substr($keyed_sha, 0, 4) ?>.
 	</p>	
-	<p><a href="/generate-get.php">Click here to repeat the process.</a></p>
+	<p>Click there to <a href="/generate-get.php">repeat the process</a>.</p>
 	<hr/>
 	<p><small>Debugging information:
 		<ul>
