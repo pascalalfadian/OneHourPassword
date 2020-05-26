@@ -60,7 +60,7 @@ for ($month = 1; $month <= 12; $month++) {
 		</select>
 		<p>
 			<label for="key">Key</label>
-			<input type="text" name="key" minlength="32" required size="64" value="<?= htmlspecialchars($_COOKIE[$key_cookie_name]) ?>"/>
+			<input type="text" name="key" minlength="32" required size="64" value="<?= array_key_exists($key_cookie_name, $_COOKIE) ? htmlspecialchars($_COOKIE[$key_cookie_name]) : '' ?>"/>
 			<br/><small>For your convenience, key will be stored locally as a HTTPS-only cookie in your browser for 30 days. <strong>Do not use this tool in a shared device!</strong></small>
 		</p>
 		<input type="submit" value="Get password"/>
