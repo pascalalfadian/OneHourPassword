@@ -34,5 +34,6 @@ $keyed_sha = generate_key($datetime, $plaintext);
 			<li>key length: <?= strlen($plaintext['key']) ?></li>
 		</ul>
 	</small></p>
+	<p><small>See this project on GitHub: <a href="https://github.com/pascalalfadian/OneHourPassword">https://github.com/pascalalfadian/OneHourPassword</a></small></p>
 </body>
 </html>

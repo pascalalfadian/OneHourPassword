@@ -56,5 +56,13 @@ For example, you have an exam at 17 August 1945, 10:00 to 12:00 (let's pretend w
 
 1. It works on other formats too, as long as they can be easily encrypted and decrypted (ZIP and PDF are two good examples).
 2. The generated password is only valid at given hour. If your exam starts at 10:30 for example, then your students only have &plusmn; 30 minutes to retrieve the password.
-3. Do not give the encrypted PDF too soon (like, a month before). Clever student with good computing resource may guess the password with brute force technique. (I will do some calculations and discussions on this when I have time, but with current condition it should hold for up to a month)
-4. If you use the free-tier of heroku, it will [sleep after 30 minutes of inactivity](https://www.heroku.com/pricing). Therefore, you may want to trigger the main URL 15 minutes before exam date/time to wake it up, so that the first student retrieving the password need not to wait. 
+3. If you use the free-tier of heroku, it will [sleep after 30 minutes of inactivity](https://www.heroku.com/pricing). Therefore, you may want to trigger the main URL 15 minutes before exam date/time to wake it up, so that the first student retrieving the password need not to wait. 
+4. Regarding security:
+    1. Do not give the encrypted PDF too soon (like, a month before). Clever student with good computing resource may guess the password with brute force technique.
+    2. I just used gut feeling not exact calculation, but the complexity of cracking the password relies on minimum of these factors:
+        1. **Generated password itself**: first 4 characters are predefined, while the rest 9 characters are valid base64 characters, i.e. 64<sup>9</sup> = 1.80 * 10<sup>16</sup> possibilities.
+        2. **Your secret key**: assuming you use also random base64 characters, with minimum of 32 characters, i.e. 64<sup>32</sup> = 6.27 * 10<sup>57</sup> possibilities.
+        3. **Size of your file**: in most cases it should be big enough. If at least 10 bytes of your file are completely random byte, i.e. 256<sup>10</sup> = 1.20 * 10<sup>24</sup> possibilities.
+        4. **Strength of hash function**: SHA-256 is used, it should be enough.
+    3. Let's say your computer can do 1 billion guess per second, it will take 10 million seconds (115 days) to crack the password.
+    4. The original author earned Master degree in Infocomm Security, if that can help you feel safer using this.
