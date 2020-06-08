@@ -55,7 +55,7 @@ For example, you have an exam at 17 August 1945, 10:00 to 12:00 (let's pretend w
 ## Notes & Caveats
 
 1. It works on other formats too, as long as they can be easily encrypted and decrypted (ZIP and PDF are two good examples).
-2. The generated password is only valid at given hour. If your exam starts at 10:30 for example, then your students only have &plusmn; 30 minutes to retrieve the password.
+2. The generated password is only valid at given hour. If your exam starts at 10:30 for example, then **bummer, this is a limitation**. You must hence enable maintenance mode for your Heroku App before 10:00, and disable it manually at 10:30; and your students only have &plusmn; 30 minutes to retrieve the password.
 3. If you use the free-tier of heroku, it will [sleep after 30 minutes of inactivity](https://www.heroku.com/pricing). Therefore, you may want to trigger the main URL 15 minutes before exam date/time to wake it up, so that the first student retrieving the password need not to wait. 
 4. Regarding security:
     1. Do not give the encrypted PDF too soon (like, a month before). Clever student with good computing resource may guess the password with brute force technique.
